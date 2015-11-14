@@ -14,6 +14,95 @@
 		local('Roboto-Bold'),
 		url('../fonts/Roboto-Bold.ttf');
 }
+html, body { height: 100%; }
 body {
 	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after { box-sizing: inherit; }
+
+.app {
+	height: 100%;
+}
+.sidebar {
+	padding: 1em 0;
+	width: 20%;
+	height: 100%;
+	border-right: 1px solid #e2e2e2;
+	background: #f9f9f9;
+}
+
+.sidebar ol {
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.sidebar li {
+	border-top: 1px solid #e2e2e2;
+	padding: 0.3em 1em;
+	cursor: pointer;
+}
+.sidebar li:hover {
+	background: #fefefe;
+}
+
+.sidebar li:hover > .ok {
+	visibility: visible;
+}
+
+.sidebar .ok {
+	transform: rotate(45deg);
+	visibility: hidden;
+}
+.sidebar .loading {
+	animation: spin 1s infinite linear;
+}
+
+.sidebar svg {
+	stroke: #73a5ff;
+	fill: #73a5ff;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+.sidebar .status {
+	position: relative;
+	display: inline-block;
+	height: 1.4em;
+	margin-right: 0.6em;
+	overflow: hidden;
+	width: 1.4em;
+}
+
+.sidebar .add {
+	text-align: center;
+	font-size: 1.3rem;
+	padding: 1em;
+}
+
+.sidebar .title {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: calc(100% - 4em - 1.4em);
+}
+.sidebar .unread {
+	background: #73a3ea;
+	border-radius: 3px;
+	color: white;
+	display: inline-block;
+	font-size: 0.8rem;
+	min-width: 4em;
+	overflow: hidden;
+	padding: 0.2em;
+	text-align: center;
+}
+.sidebar .unread.err {
+	background: #f19595;
 }

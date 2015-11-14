@@ -3,6 +3,6 @@
   (:require [re-frame.core :as re-frame :refer [register-sub]]))
 
 (register-sub
-  :name
+  :feeds
   (fn [db]
-    (reaction (:name @db))))
+    (reaction (:feeds @db))))

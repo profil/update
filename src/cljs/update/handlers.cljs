@@ -6,4 +6,15 @@
 (register-handler
   :initialize-db
   (fn  [_ _]
-    db/default-db))
+    (db/init-db)))
+
+(register-handler
+  :update
+  (fn [db [_ idx]]
+    (js/setTimeout #(dispatch [:abort idx]) 1500)
+    (assoc-in db [:feeds idx :status] :loading)))
+
+(register-handler
+  :abort
+  (fn [db [_ idx]]
+    (assoc-in db [:feeds idx :status] :ok)))
